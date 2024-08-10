@@ -1,0 +1,10 @@
+{% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body|truncatechars:50 }}</p>
+    <a href="{% url 'blog:post-detail' id=post.id %}">continue reading</a>
+    <br />
+    Author: <strong>{{ post.author }}</strong>
+    {% if not forloop.last %}
+    <hr />
+    {% endif %}
+{% endfor %}
